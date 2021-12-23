@@ -1,6 +1,44 @@
 {
   "version": 1,
   "projects": {
+    "pokemon": {
+      "projectType": "library",
+      "root": "libs/pokemon",
+      "sourceRoot": "libs/pokemon/src",
+      "prefix": "pokemon",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/pokemon"
+          ],
+          "options": {
+            "jestConfig": "libs/pokemon/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "generate": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "npx graphql-codegen --config ./libs/pokemon/codegen.yml"
+              }
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/pokemon/src/**/*.ts",
+              "libs/pokemon/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
     "teams": {
       "projectType": "application",
       "root": "apps/teams",

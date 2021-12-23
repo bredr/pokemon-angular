@@ -1,0 +1,16 @@
+<div class="search">
+  <form class="form">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Pokemon species</mat-label>
+      <input type="text" matInput placeholder="Pokemon species" aria-label="Pokemon species" [formControl]="myControl"  [matAutocomplete]="auto">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions$ | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+  <button mat-fab color="primary" aria-label="Search" (click)="getResults()" [disabled]="lastValue === ''">
+    <mat-icon>search</mat-icon>
+  </button>
+</div>

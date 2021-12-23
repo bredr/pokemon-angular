@@ -1,0 +1,21 @@
+query suggestion($search: String!) {
+  getFuzzyPokemon(pokemon: $search, take: 10) {
+    species
+  }
+}
+
+query page($search: String!, $limit: Int!, $offset: Int!) {
+  getFuzzyPokemon(pokemon: $search, take: $limit, offset: $offset) {
+    species
+    sprite
+    height
+    baseStats {
+      attack
+      defense
+      hp
+      speed
+      specialattack
+      specialdefense
+    }
+  }
+}
