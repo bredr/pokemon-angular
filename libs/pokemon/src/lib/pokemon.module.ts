@@ -10,10 +10,11 @@ import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from "@angular/mat
 import { MatInputModule } from "@angular/material/input"
 import { MatIconModule } from "@angular/material/icon"
 import { MatButtonModule } from "@angular/material/button"
+import { MatCardModule } from "@angular/material/card"
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner"
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ResultsComponent } from './results/results.component';
-
+import { MatDividerModule } from "@angular/material/divider";
 @NgModule({
   imports: [
     CommonModule,
@@ -30,6 +31,8 @@ import { ResultsComponent } from './results/results.component';
     MatProgressSpinnerModule,
     MatIconModule,
     MatButtonModule,
+    MatCardModule,
+    MatDividerModule,
   ],
   declarations: [
     SuggestionsComponent,

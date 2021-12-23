@@ -1,0 +1,14 @@
+.component {
+  width: 100%;
+  max-width: 800px;
+  padding: 10vh;
+}
+
+.card {
+  max-width: 400px;
+  margin: 30px 10% 30px 10%;
+}
+
+.avatar {
+  background-size: cover;
+}

@@ -1,2 +1,19 @@
 <mat-spinner *ngIf="loading$ | async"></mat-spinner>
-<div *ngFor="let result of results$ | async">{{result.species}}</div>
+<div class="container">
+  <mat-card  class="card" *ngFor="let result of results$ | async">
+    <mat-card-header color="primary">
+      <div mat-card-avatar class="avatar" [style.background-image]="styleURL(result.sprite)"></div>
+      <mat-card-title>{{result.species}}</mat-card-title>
+    </mat-card-header>
+    <mat-divider inset></mat-divider>
+    <mat-card-content>
+      <p><b>Height:</b> {{result.height}}</p>
+      <p><b>Attack:</b> {{result.attack}}</p>
+      <p><b>Defense:</b> {{result.defense}}</p>
+      <p><b>HP:</b> {{result.hp}}</p>
+      <p><b>Speed:</b> {{result.speed}}</p>
+      <p><b>Special attack:</b> {{result.specialattack}}</p>
+      <p><b>Special defense:</b> {{result.specialdefense}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

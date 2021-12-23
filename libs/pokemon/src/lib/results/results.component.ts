@@ -22,4 +22,9 @@ export class ResultsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  styleURL(sprite: string) {
+    return `url(${sprite})`
+  }
+
 }
+
