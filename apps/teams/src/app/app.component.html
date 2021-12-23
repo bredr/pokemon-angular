@@ -1,9 +1,7 @@
 <mat-toolbar color="primary">
   <a mat-button routerLink="/"><h1>Pokemon</h1></a>
   <span class="spacer"></span>
-  <a mat-icon-button class="favourite-icon" aria-label="current team" routerLink="/team">
-    <mat-icon>favorite</mat-icon>
-  </a>
+  <pokemon-count (clicked)="toFavourites()"></pokemon-count>
 </mat-toolbar>
 <main class="container">
   <router-outlet></router-outlet>

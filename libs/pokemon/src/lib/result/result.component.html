@@ -1,0 +1,40 @@
+<mat-card class="card">
+  <mat-card-header color="primary">
+    <div
+      mat-card-avatar
+      class="avatar"
+      [style.background-image]="styleURL(result.sprite)"
+    ></div>
+    <mat-card-title>{{ result.species }}</mat-card-title>
+    <span class="spacer"></span>
+    <button
+      *ngIf="isFavourite$ | async; else addFavourite"
+      mat-icon-button
+      color="accent"
+      aria-label="Remove from team"
+      (click)="remove()"
+    >
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <ng-template #addFavourite>
+      <button
+        mat-icon-button
+        color="accent"
+        aria-label="Add to team"
+        (click)="add()"
+      >
+        <mat-icon>favorite_border</mat-icon>
+      </button>
+    </ng-template>
+  </mat-card-header>
+  <mat-divider inset></mat-divider>
+  <mat-card-content>
+    <p><b>Height:</b> {{ result.height }}</p>
+    <p><b>Attack:</b> {{ result.attack }}</p>
+    <p><b>Defense:</b> {{ result.defense }}</p>
+    <p><b>HP:</b> {{ result.hp }}</p>
+    <p><b>Speed:</b> {{ result.speed }}</p>
+    <p><b>Special attack:</b> {{ result.specialattack }}</p>
+    <p><b>Special defense:</b> {{ result.specialdefense }}</p>
+  </mat-card-content>
+</mat-card>

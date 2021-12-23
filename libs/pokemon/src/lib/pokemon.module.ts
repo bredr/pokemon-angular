@@ -15,6 +15,10 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner"
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ResultsComponent } from './results/results.component';
 import { MatDividerModule } from "@angular/material/divider";
+import { ResultComponent } from './result/result.component';
+import { CountComponent } from './count/count.component';
+import { MatBadgeModule } from "@angular/material/badge";
+import { FavouritesComponent } from './favourites/favourites.component'
 @NgModule({
   imports: [
     CommonModule,
@@ -33,14 +37,20 @@ import { MatDividerModule } from "@angular/material/divider";
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
+    MatBadgeModule
   ],
   declarations: [
     SuggestionsComponent,
-    ResultsComponent
+    ResultsComponent,
+    ResultComponent,
+    CountComponent,
+    FavouritesComponent
   ],
   exports: [
     SuggestionsComponent,
-    ResultsComponent
+    ResultsComponent,
+    CountComponent,
+    FavouritesComponent
   ],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } }

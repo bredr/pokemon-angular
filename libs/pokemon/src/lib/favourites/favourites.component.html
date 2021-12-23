@@ -1,0 +1,4 @@
+<div class="container">
+  <h2 *ngIf="(favourites$ | async)?.length === 0">Gotta catch some more!</h2>
+  <pokemon-result *ngFor="let pokemon of favourites$ | async" [result]="pokemon"></pokemon-result>
+</div>

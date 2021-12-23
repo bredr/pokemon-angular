@@ -1,0 +1,12 @@
+.card {
+  max-width: 400px;
+  margin: 30px 10% 30px 10%;
+}
+
+.avatar {
+  background-size: cover;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

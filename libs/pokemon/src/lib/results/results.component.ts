@@ -11,19 +11,13 @@ import { PokemonEntity } from '../+state/pokemon/pokemon.models';
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css']
 })
-export class ResultsComponent implements OnInit {
+export class ResultsComponent {
   results$: Observable<PokemonEntity[]>
   loading$: Observable<boolean>
 
   constructor(private store: Store<State>) {
     this.results$ = store.select(selectors.getPokemon)
     this.loading$ = store.select(selectors.isLoading)
-  }
-  ngOnInit(): void {
-  }
-
-  styleURL(sprite: string) {
-    return `url(${sprite})`
   }
 
 }
