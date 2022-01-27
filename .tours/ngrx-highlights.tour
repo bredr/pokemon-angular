@@ -79,7 +79,7 @@
     },
     {
       "file": "apps/teams/src/app/app.module.ts",
-      "description": "by include the StoreRouterConnectingModule to our app.",
+      "description": "by including the StoreRouterConnectingModule to our app.",
       "line": 41
     }
   ]
