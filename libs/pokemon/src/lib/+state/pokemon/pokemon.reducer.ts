@@ -9,6 +9,7 @@ export interface State extends EntityState<PokemonEntity> {
   suggestions: string[];
   error?: string | null; // last known error (if any)
   pokemon: PokemonEntity[];
+  searchTerm: string;
   limit: number;
   offset: number;
   loading: boolean;
@@ -25,6 +26,7 @@ export const pokemonAdapter: EntityAdapter<PokemonEntity> =
 export const initialState: State = pokemonAdapter.getInitialState({
   // set initial required properties
   suggestions: [],
+  searchTerm: "",
   pokemon: [],
   limit: 10,
   offset: 0,
@@ -36,6 +38,7 @@ const pokemonReducer = createReducer(
   initialState,
   on(PokemonActions.init, (state) => ({
     ...state,
+    searchTerm: "",
     suggestions: [],
     error: null,
   })),
@@ -43,6 +46,7 @@ const pokemonReducer = createReducer(
     PokemonActions.LoadSuggestionsSuccess,
     (state, { pokemon: suggestions }) => ({
       ...state,
+      searchTerm: "",
       suggestions,
       pokemon: [],
     })
@@ -53,8 +57,9 @@ const pokemonReducer = createReducer(
     suggestions: [],
     error,
   })),
-  on(PokemonActions.GetPage, (state, { limit, offset }) => ({
+  on(PokemonActions.GetPage, (state, { search, limit, offset }) => ({
     ...state,
+    searchTerm: search,
     limit,
     offset,
     pokemon: [],

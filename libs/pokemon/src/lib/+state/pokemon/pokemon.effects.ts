@@ -6,7 +6,7 @@ import { catchError, exhaustMap, map } from 'rxjs/operators';
 import * as PokemonActions from './pokemon.actions';
 import { SuggestionGQL, PageGQL, PageQuery } from '../../generated/generated';
 import { PokemonEntity } from './pokemon.models';
-
+import { routerNavigatedAction } from "@ngrx/router-store"
 @Injectable()
 export class PokemonEffects {
   suggestions$ = createEffect(() =>
@@ -27,6 +27,18 @@ export class PokemonEffects {
             )
           )
         );
+      })
+    )
+  );
+
+  pageLoad$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(routerNavigatedAction),
+      exhaustMap(({ payload: { routerState: { root: { queryParams } } } }) => {
+        if (!queryParams["q"]) {
+          return of(PokemonActions.LoadPageSuccess({ pokemon: [] }));
+        }
+        return of(PokemonActions.GetPage({ search: queryParams["q"], limit: 10, offset: 0 }))
       })
     )
   );

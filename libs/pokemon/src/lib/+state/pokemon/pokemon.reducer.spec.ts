@@ -5,23 +5,30 @@ import { PokemonEntity } from './pokemon.models';
 import { State, initialState, reducer } from './pokemon.reducer';
 
 describe('Pokemon Reducer', () => {
-  const createPokemonEntity = (id: string, name = ''): PokemonEntity => ({
-    id,
-    name: name || `name-${id}`,
+  const createPokemonEntity = (species: string): PokemonEntity => ({
+    species,
+    sprite: "",
+    height: 0,
+    attack: 0,
+    defense: 0,
+    hp: 0,
+    speed: 0,
+    specialattack: 0,
+    specialdefense: 0
   });
 
   describe('valid Pokemon actions', () => {
     it('loadPokemonSuccess should return the list of known Pokemon', () => {
       const pokemon = [
-        createPokemonEntity('PRODUCT-AAA'),
-        createPokemonEntity('PRODUCT-zzz'),
+        createPokemonEntity("A"),
+        createPokemonEntity('B'),
       ];
-      const action = PokemonActions.loadPokemonSuccess({ pokemon });
+      const action = PokemonActions.LoadPageSuccess({ pokemon });
 
       const result: State = reducer(initialState, action);
 
-      expect(result.loaded).toBe(true);
-      expect(result.ids.length).toBe(2);
+      expect(result.loading).toBe(false);
+      expect(result.pokemon.length).toBe(2);
     });
   });
 

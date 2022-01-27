@@ -19,10 +19,12 @@ export interface User {
 export class SuggestionsComponent implements OnInit {
   myControl = new FormControl();
   filteredOptions$: Observable<string[]>;
+  searchTerm$: Observable<string>;
   lastValue = "";
 
   constructor(private store: Store<State>) {
     this.filteredOptions$ = store.select(selectors.getSuggestions)
+    this.searchTerm$ = store.select(selectors.searchTerm)
   }
 
   ngOnInit() {
@@ -30,6 +32,13 @@ export class SuggestionsComponent implements OnInit {
       if (this.lastValue !== x) {
         this.updateSuggestions(x);
         this.lastValue = x;
+      }
+    })
+
+    this.searchTerm$.subscribe((x) => {
+      if (x.length > 0) {
+        this.lastValue = x;
+        this.myControl.setValue(x)
       }
     })
   }

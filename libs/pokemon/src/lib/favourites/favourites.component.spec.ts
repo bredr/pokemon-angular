@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideMockStore } from "@ngrx/store/testing"
+import * as fromPokemon from '../+state/pokemon/pokemon.reducer';
 import { FavouritesComponent } from './favourites.component';
 
 describe('FavouritesComponent', () => {
@@ -8,9 +9,10 @@ describe('FavouritesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FavouritesComponent ]
+      declarations: [FavouritesComponent],
+      providers: [provideMockStore({ initialState: fromPokemon.initialState })]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

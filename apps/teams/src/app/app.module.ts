@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
+import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
@@ -23,7 +24,9 @@ import { PokemonModule } from '@pokemon/pokemon';
     BrowserModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(
-      {},
+      {
+        router: routerReducer
+      },
       {
         metaReducers: !environment.production ? [] : [],
         runtimeChecks: {
@@ -35,6 +38,7 @@ import { PokemonModule } from '@pokemon/pokemon';
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     AppRoutingModule,
+    StoreRouterConnectingModule.forRoot(),
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,

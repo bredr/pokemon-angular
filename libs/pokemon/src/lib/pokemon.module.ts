@@ -37,7 +37,7 @@ import { FavouritesComponent } from './favourites/favourites.component'
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
-    MatBadgeModule
+    MatBadgeModule,
   ],
   declarations: [
     SuggestionsComponent,
