@@ -1,0 +1,86 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "ngrx highlights",
+  "steps": [
+    {
+      "file": "libs/pokemon/src/lib/+state/pokemon/pokemon.actions.ts",
+      "description": "We define our actions here",
+      "line": 1
+    },
+    {
+      "file": "libs/pokemon/src/lib/+state/pokemon/pokemon.reducer.ts",
+      "description": "For actions with no side effects we apply them to state in the reducer",
+      "line": 37,
+      "selection": {
+        "start": {
+          "line": 23,
+          "character": 14
+        },
+        "end": {
+          "line": 23,
+          "character": 28
+        }
+      }
+    },
+    {
+      "file": "libs/pokemon/src/lib/+state/pokemon/pokemon.effects.ts",
+      "description": "When an external API call for example needs to be made we make this into an effect.",
+      "line": 11,
+      "selection": {
+        "start": {
+          "line": 78,
+          "character": 7
+        },
+        "end": {
+          "line": 81,
+          "character": 17
+        }
+      }
+    },
+    {
+      "file": "libs/pokemon/src/lib/+state/pokemon/pokemon.selectors.ts",
+      "description": "In order to bind the state to components we create selectors which expose a piece of state as an observable.",
+      "line": 15
+    },
+    {
+      "file": "libs/pokemon/src/lib/count/count.component.ts",
+      "description": "We can bind our state to a component with a selector",
+      "line": 19
+    },
+    {
+      "file": "libs/pokemon/src/lib/count/count.component.html",
+      "description": "...then render the value with the async pipe",
+      "line": 2
+    },
+    {
+      "file": "libs/pokemon/src/lib/result/result.component.html",
+      "description": "when a button is clicked",
+      "line": 24
+    },
+    {
+      "file": "libs/pokemon/src/lib/result/result.component.ts",
+      "description": "dispatch an action to the store",
+      "line": 31
+    },
+    {
+      "file": "libs/pokemon/src/lib/+state/pokemon/pokemon.effects.ts",
+      "description": "we can even hook into router based actions",
+      "line": 36,
+      "selection": {
+        "start": {
+          "line": 78,
+          "character": 7
+        },
+        "end": {
+          "line": 81,
+          "character": 17
+        }
+      }
+    },
+    {
+      "file": "apps/teams/src/app/app.module.ts",
+      "description": "by include the StoreRouterConnectingModule to our app.",
+      "line": 41
+    }
+  ]
+}
