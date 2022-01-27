@@ -1,12 +1,14 @@
-# Pokemon
+# Pokemon demo
 
-This project is a demonstrator of using various NGRX components to build a simple app.
+This project is a demonstrator of using various ngrx components to build a simple app.
 
 The backend can be stood up using `docker-compose up`.
 
 To serve the simple app `nx serve teams`.
 
 This project was generated using [Nx](https://nx.dev).
+
+Take the code tour to see some highlight of ngrx.
 
 ## Quick Start & Documentation
 
